@@ -10,4 +10,6 @@ package com.villaandina.VillaAndina.entity;
  */
 public class RolEntity {
     private int codigo;
+    private String nombre;
+    private boolean estado;
 }
