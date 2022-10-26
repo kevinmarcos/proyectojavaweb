@@ -29,10 +29,10 @@ public class DistritoController {
     
     @GetMapping("/custom")
     public List<DistritoEntity> findAllCustom(){
-        return distritoservice.findAll();
+        return distritoservice.findAllCustom();
     }
     
-    @GetMapping("/(id)")
+    @GetMapping("/{id}")
     public Optional<DistritoEntity> findById(@PathVariable Long id){
         return distritoservice.findById(id);
     }
@@ -42,7 +42,7 @@ public class DistritoController {
         return distritoservice.add(d);
     }
     
-    @PutMapping("/(id)")
+    @PutMapping("/{id}")
     public DistritoEntity update(@PathVariable Long id, @RequestBody DistritoEntity d){
         d.setCodigo(id);
         return distritoservice.update(d);

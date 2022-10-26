@@ -29,7 +29,7 @@ public class EmpleadoController {
     
     @GetMapping("/custom")
     public List<EmpleadoEntity> findAllCustom(){
-        return empleadoservice.findAll();
+        return empleadoservice.findAllCustom();
     }
     
     @GetMapping("/(id)")

@@ -31,10 +31,10 @@ public class CategoriaController {
     
     @GetMapping("/custom")
     public List<CategoriaEntity> findAllCustom(){
-        return categoriaservice.findAll();
+        return categoriaservice.findAllCustom();
     }
     
-    @GetMapping("/(id)")
+    @GetMapping("/{id}")
     public Optional<CategoriaEntity> findById(@PathVariable Long id){
         return categoriaservice.findById(id);
     }
@@ -44,14 +44,14 @@ public class CategoriaController {
         return categoriaservice.add(c);
     }
     
-    @PutMapping("/(id)")
+    @PutMapping("/{id}")
     public CategoriaEntity update(@PathVariable Long id, @RequestBody CategoriaEntity c){
         c.setCodigo(id);
         return categoriaservice.update(c);
     }
     
     @DeleteMapping
-    public CategoriaEntity delete(@PathVariable Long id, @RequestBody CategoriaEntity c){
+    public CategoriaEntity delete(@PathVariable Long id){
         CategoriaEntity objcategoria = new CategoriaEntity();
         objcategoria.setEstado(false);
         return categoriaservice.delete(CategoriaEntity.builder().codigo(id).build());
