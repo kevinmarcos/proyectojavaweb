@@ -48,7 +48,7 @@ public class CategoriaEntity implements Serializable{
     @Column(name="nomcat")
     @NotNull
     private String nombre;
-    @Column(name="estcat")
+    @Column(name="estado")
     @NotNull
     private boolean estado;
 }

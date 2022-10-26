@@ -38,11 +38,11 @@ public class EmpleadoEntity implements Serializable{
     @NotNull
     private String nombre;
     
-    @Column(name="apellidPat")
+    @Column(name="apellidpat")
     @NotNull
     private String apellidopaterno;
     
-    @Column(name="apellidMat")
+    @Column(name="apellidmat")
     @NotNull
     private String apellidomaterno;
     

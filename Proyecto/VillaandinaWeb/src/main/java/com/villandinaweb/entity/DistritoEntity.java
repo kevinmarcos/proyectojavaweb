@@ -34,12 +34,12 @@ public class DistritoEntity implements Serializable{
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    @Column(name="codDistrito")
+    @Column(name="coddistrito")
     private long codigo;
     @Column(name="nomdistrito")
     @NotNull
     private String nombre;
-    @Column(name="estDistrito")
+    @Column(name="estado")
     @NotNull
     private boolean estado;
 }
