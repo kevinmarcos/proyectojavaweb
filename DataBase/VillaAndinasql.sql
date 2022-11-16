@@ -117,7 +117,17 @@ create table Entrada_Producto(
 );
 select * from Entrada_Producto;
 insert into Entrada_Producto(fechaentrada,coddest,codempleado,estado) values
-("2022-10-20",1,2,1);
+("2022-09-20",1,2,1),
+("2022-08-21",1,2,1),
+("2022-09-24",1,3,1),
+("2022-09-26",1,1,1),
+("2022-07-28",1,4,1),
+("2022-09-12",1,3,1),
+("2022-06-24",1,2,1),
+("2022-09-13",1,1,1),
+("2022-11-16",1,4,1),
+("2022-10-24",1,2,1),
+("2022-09-05",1,3,1);
 
 create table Salida_Producto(
 	codSalida int primary key auto_increment,
@@ -130,7 +140,17 @@ create table Salida_Producto(
 );
 select * from Salida_Producto;
 insert into Salida_Producto(fechasalida,coddestino,codempleado,estado) values
-("2022-10-20",1,2,1);
+("2022-10-20",1,2,1),
+("2022-09-21",1,2,1),
+("2022-10-24",1,3,1),
+("2022-10-26",1,1,1),
+("2022-08-28",1,4,1),
+("2022-10-12",1,3,1),
+("2022-07-24",1,2,1),
+("2022-10-13",1,1,1),
+("2022-12-16",1,4,1),
+("2022-11-24",1,2,1),
+("2022-10-05",1,3,1);
 
 -- -------------------------------------------------------------------------------------------------------------
 create table Detalle_Entrada(
