@@ -26,11 +26,11 @@ public class Salida_ProductoEntity implements Serializable{
     private static final long serialVersionUID=1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="codSalida")
+    @Column(name="codsalida")
     @NotNull
     private long codigo;
     
-    @Column(name="fechaSalida")
+    @Column(name="fechasalida")
     @NotNull
     private String fecha;
     
@@ -39,10 +39,10 @@ public class Salida_ProductoEntity implements Serializable{
     private boolean estado;
     
     @ManyToOne  
-    @JoinColumn(name="codDestino" ,nullable = false)
+    @JoinColumn(name="coddestino" ,nullable = false)
     private DestinoEntity destino;
     
     @ManyToOne  
-    @JoinColumn(name="codEmpleado" ,nullable = false)
+    @JoinColumn(name="codempleado" ,nullable = false)
     private EmpleadoEntity empleado;
 }

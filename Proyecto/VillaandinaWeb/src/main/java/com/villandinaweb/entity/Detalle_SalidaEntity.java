@@ -32,7 +32,7 @@ public class Detalle_SalidaEntity implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     
-    @Column(name="codDetalle_Salida")
+    @Column(name="coddetalle_salida")
     @NotNull
     private long codigo;
     

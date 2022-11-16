@@ -31,7 +31,7 @@ public class ProveedoresEntity implements Serializable{
     @NotNull
     private long codigo;
     
-    @Column(name="rucProv")
+    @Column(name="rucprov")
     @NotNull
     private String ruc;
     

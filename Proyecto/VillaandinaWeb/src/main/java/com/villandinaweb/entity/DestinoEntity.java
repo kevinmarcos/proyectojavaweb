@@ -30,7 +30,7 @@ public class DestinoEntity implements Serializable{
     @NotNull
     private long codigo;
     
-    @Column(name="nomDestino")
+    @Column(name="nomdestino")
     @NotNull
     private String nombre;
     

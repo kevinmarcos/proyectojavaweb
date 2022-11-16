@@ -41,7 +41,7 @@ public class ProductosEntity implements Serializable{
     
     @Column(name="cantidad")
     @NotNull
-    private boolean cantidad;
+    private int cantidad;
     
     @Column(name="estprod")
     @NotNull
