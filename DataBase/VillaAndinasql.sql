@@ -136,21 +136,45 @@ insert into Salida_Producto(fechasalida,coddestino,codempleado,estado) values
 create table Detalle_Entrada(
 	codDetalle_Entrada int primary key auto_increment,
 	codEntrada int not null,
-    codProd int not null,
+    codprod int not null,
     cantidad int not null,    
     estado bit default 1 not null,
     foreign key (codEntrada) references Entrada_Producto(codEntrada),
     foreign key (codProd) references Productos(codprod)
 );
+select * from Detalle_Entrada;
+insert into Detalle_Entrada(codprod,cantidad,estado)values
+(1,20,1),
+(3,80,1),
+(7,60,1),
+(8,30,1),
+(10,100,1),
+(1,20,1),
+(3,90,1),
+(9,30,1),
+(4,10,1),
+(2,40,1);
 
 -- ------------------------------------------------------------------------------------------------------------
 
 create table Detalle_Salida(
 	codDetalle_Salida int primary key auto_increment,
-	codSalida int not null,
-    codProd int not null,
+	codsalida int not null,
+    codprod int not null,
     cantidad int not null,
     estado bit default 1 not null,
     foreign key (codProd) references Productos(codprod),
 	foreign key (codSalida) references Salida_Producto(codSalida)
 );
+select * from Detalle_Salida;
+insert into Detalle_Salida(codprod,cantidad,estado)values
+(1,20,1),
+(4,5,1),
+(3,7,1),
+(8,3,1),
+(2,13,1),
+(11,22,1),
+(3,9,1),
+(6,25,1),
+(9,32,1),
+(2,16,1);
