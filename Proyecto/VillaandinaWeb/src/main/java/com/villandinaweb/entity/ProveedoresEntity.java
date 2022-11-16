@@ -39,7 +39,7 @@ public class ProveedoresEntity implements Serializable{
     @NotNull
     private String nombre;
     
-    @Column(name="direccionProv")
+    @Column(name="direccionprov")
     @NotNull
     private String direccion;
     
