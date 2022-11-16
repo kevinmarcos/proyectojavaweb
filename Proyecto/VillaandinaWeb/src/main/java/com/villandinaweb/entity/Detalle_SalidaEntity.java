@@ -46,10 +46,10 @@ public class Detalle_SalidaEntity implements Serializable{
     
 
     @ManyToOne
-    @JoinColumn(name="codProd" ,nullable = false)
+    @JoinColumn(name="codprod" ,nullable = false)
     private ProductosEntity productos;
     
     @ManyToOne
-    @JoinColumn(name="codSalida" ,nullable = false)
+    @JoinColumn(name="codsalida" ,nullable = false)
     private Salida_ProductoEntity salida_producto;
 }

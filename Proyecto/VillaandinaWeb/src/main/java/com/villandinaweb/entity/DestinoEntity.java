@@ -26,7 +26,7 @@ public class DestinoEntity implements Serializable{
     private static final long serialVersionUID=1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="codDestino")
+    @Column(name="coddestino")
     @NotNull
     private long codigo;
     
@@ -42,6 +42,6 @@ public class DestinoEntity implements Serializable{
     @ManyToOne
     
     //@JoinColumn define el campo que genera la clave foranea
-    @JoinColumn(name="codDistrito" ,nullable = false)
+    @JoinColumn(name="coddistrito" ,nullable = false)
     private DistritoEntity distrito;
 }

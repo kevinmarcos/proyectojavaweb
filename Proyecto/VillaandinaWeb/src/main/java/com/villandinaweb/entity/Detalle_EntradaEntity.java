@@ -26,7 +26,7 @@ public class Detalle_EntradaEntity implements Serializable{
     private static final long serialVersionUID=1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="codDetalle_Entrada")
+    @Column(name="coddetalle_entrada")
     @NotNull
     private long codigo;
     
@@ -42,7 +42,7 @@ public class Detalle_EntradaEntity implements Serializable{
     @ManyToOne
     
     //@JoinColumn define el campo que genera la clave foranea
-    @JoinColumn(name="codEntrada" ,nullable = false)
+    @JoinColumn(name="codentrada" ,nullable = false)
     private Entrada_ProductoEntity entrada_producto;
     
     @JoinColumn(name="coddest" ,nullable = false)  
@@ -50,6 +50,6 @@ public class Detalle_EntradaEntity implements Serializable{
     private DestinoEntity destino;
     
     @ManyToOne
-    @JoinColumn(name="codProv" ,nullable = false)
+    @JoinColumn(name="codprov" ,nullable = false)
     private ProveedoresEntity proveedores;
 }
