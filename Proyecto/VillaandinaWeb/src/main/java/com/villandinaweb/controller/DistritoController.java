@@ -48,8 +48,8 @@ public class DistritoController {
         return distritoservice.update(d);
     }
     
-    @DeleteMapping
-    public DistritoEntity delete(@PathVariable Long id, @RequestBody DistritoEntity d){
+    @DeleteMapping("/{id}")
+    public DistritoEntity delete(@PathVariable Long id){
         DistritoEntity objcategoria = new DistritoEntity();
         objcategoria.setEstado(false);
         return distritoservice.delete(DistritoEntity.builder().codigo(id).build());

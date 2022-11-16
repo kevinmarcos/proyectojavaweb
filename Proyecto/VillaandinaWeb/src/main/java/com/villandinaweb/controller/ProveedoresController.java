@@ -34,7 +34,7 @@ public class ProveedoresController {
         return proveedoresservice.findAllCustom();
     }
     
-    @GetMapping("/(id)")
+    @GetMapping("/{id}")
     public Optional<ProveedoresEntity> findById(@PathVariable Long id){
         return proveedoresservice.findById(id);
     }
@@ -44,14 +44,14 @@ public class ProveedoresController {
         return proveedoresservice.add(e);
     }
     
-    @PutMapping("/(id)")
+    @PutMapping("/{id}")
     public ProveedoresEntity update(@PathVariable Long id, @RequestBody ProveedoresEntity e){
         e.setCodigo(id);
         return proveedoresservice.update(e);
     }
     
-    @DeleteMapping
-    public ProveedoresEntity delete(@PathVariable Long id, @RequestBody ProveedoresEntity e){
+    @DeleteMapping("/{id}")
+    public ProveedoresEntity delete(@PathVariable Long id){
         ProveedoresEntity objcategoria = new ProveedoresEntity();
         objcategoria.setEstado(false);
         return proveedoresservice.delete(ProveedoresEntity.builder().codigo(id).build());

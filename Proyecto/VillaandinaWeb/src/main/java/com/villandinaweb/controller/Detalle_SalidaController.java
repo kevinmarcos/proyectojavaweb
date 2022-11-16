@@ -35,7 +35,7 @@ public class Detalle_SalidaController {
         return detalle_salidaservice.findAllCustom();
     }
     
-    @GetMapping("/(id)")
+    @GetMapping("/{id}")
     public Optional<Detalle_SalidaEntity> findById(@PathVariable Long id){
         return detalle_salidaservice.findById(id);
     }
@@ -45,14 +45,14 @@ public class Detalle_SalidaController {
         return detalle_salidaservice.add(e);
     }
     
-    @PutMapping("/(id)")
+    @PutMapping("/{id}")
     public Detalle_SalidaEntity update(@PathVariable Long id, @RequestBody Detalle_SalidaEntity e){
         e.setCodigo(id);
         return detalle_salidaservice.update(e);
     }
     
-    @DeleteMapping
-    public Detalle_SalidaEntity delete(@PathVariable Long id, @RequestBody Detalle_SalidaEntity e){
+    @DeleteMapping("/{id}")
+    public Detalle_SalidaEntity delete(@PathVariable Long id){
         Detalle_SalidaEntity objcategoria = new Detalle_SalidaEntity();
         objcategoria.setEstado(false);
         return detalle_salidaservice.delete(Detalle_SalidaEntity.builder().codigo(id).build());

@@ -32,7 +32,7 @@ public class EmpleadoController {
         return empleadoservice.findAllCustom();
     }
     
-    @GetMapping("/(id)")
+    @GetMapping("/{id}")
     public Optional<EmpleadoEntity> findById(@PathVariable Long id){
         return empleadoservice.findById(id);
     }
@@ -42,14 +42,14 @@ public class EmpleadoController {
         return empleadoservice.add(e);
     }
     
-    @PutMapping("/(id)")
+    @PutMapping("/{id}")
     public EmpleadoEntity update(@PathVariable Long id, @RequestBody EmpleadoEntity e){
         e.setCodigo(id);
         return empleadoservice.update(e);
     }
     
-    @DeleteMapping
-    public EmpleadoEntity delete(@PathVariable Long id, @RequestBody EmpleadoEntity e){
+    @DeleteMapping("/{id}")
+    public EmpleadoEntity delete(@PathVariable Long id){
         EmpleadoEntity objcategoria = new EmpleadoEntity();
         objcategoria.setEstado(false);
         return empleadoservice.delete(EmpleadoEntity.builder().codigo(id).build());
