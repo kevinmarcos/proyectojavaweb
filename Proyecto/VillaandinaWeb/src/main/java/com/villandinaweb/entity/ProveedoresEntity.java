@@ -51,7 +51,7 @@ public class ProveedoresEntity implements Serializable{
     @NotNull
     private int telefono;
     
-    @Column(name="estprove")
+    @Column(name="estado")
     @NotNull
     private boolean estado;
 

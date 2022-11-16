@@ -34,7 +34,7 @@ public class DestinoController {
         return destinoservice.findAllCustom();
     }
     
-    @GetMapping("/(id)")
+    @GetMapping("/{id}")
     public Optional<DestinoEntity> findById(@PathVariable Long id){
         return destinoservice.findById(id);
     }
@@ -44,14 +44,14 @@ public class DestinoController {
         return destinoservice.add(e);
     }
     
-    @PutMapping("/(id)")
+    @PutMapping("/{id}")
     public DestinoEntity update(@PathVariable Long id, @RequestBody DestinoEntity e){
         e.setCodigo(id);
         return destinoservice.update(e);
     }
     
-    @DeleteMapping
-    public DestinoEntity delete(@PathVariable Long id, @RequestBody DestinoEntity e){
+    @DeleteMapping ("/{id}")
+    public DestinoEntity delete(@PathVariable Long id){
         DestinoEntity objcategoria = new DestinoEntity();
         objcategoria.setEstado(false);
         return destinoservice.delete(DestinoEntity.builder().codigo(id).build());

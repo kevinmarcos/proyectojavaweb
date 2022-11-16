@@ -33,7 +33,7 @@ public class ProductosController {
         return productosservice.findAllCustom();
     }
     
-    @GetMapping("/(id)")
+    @GetMapping("/{id}")
     public Optional<ProductosEntity> findById(@PathVariable Long id){
         return productosservice.findById(id);
     }
@@ -43,16 +43,16 @@ public class ProductosController {
         return productosservice.add(e);
     }
     
-    @PutMapping("/(id)")
+    @PutMapping("/{id}")
     public ProductosEntity update(@PathVariable Long id, @RequestBody ProductosEntity e){
         e.setCodigo(id);
         return productosservice.update(e);
     }
     
-    @DeleteMapping
-    public ProductosEntity delete(@PathVariable Long id, @RequestBody ProductosEntity e){
-        ProductosEntity objcategoria = new ProductosEntity();
-        objcategoria.setEstado(false);
+    @DeleteMapping ("/{id}")
+    public ProductosEntity delete(@PathVariable Long id){
+        ProductosEntity objproducto = new ProductosEntity();
+        objproducto.setEstado(false);
         return productosservice.delete(ProductosEntity.builder().codigo(id).build());
     }
 }

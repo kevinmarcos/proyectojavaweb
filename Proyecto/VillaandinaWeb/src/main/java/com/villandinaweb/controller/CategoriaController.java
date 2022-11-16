@@ -50,7 +50,7 @@ public class CategoriaController {
         return categoriaservice.update(c);
     }
     
-    @DeleteMapping
+    @DeleteMapping ("/{id}")
     public CategoriaEntity delete(@PathVariable Long id){
         CategoriaEntity objcategoria = new CategoriaEntity();
         objcategoria.setEstado(false);

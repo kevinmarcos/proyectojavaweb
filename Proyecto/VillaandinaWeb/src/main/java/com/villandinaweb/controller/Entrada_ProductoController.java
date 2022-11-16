@@ -35,7 +35,7 @@ public class Entrada_ProductoController {
         return entrada_productoservice.findAllCustom();
     }
     
-    @GetMapping("/(id)")
+    @GetMapping("/{id}")
     public Optional<Entrada_ProductoEntity> findById(@PathVariable Long id){
         return entrada_productoservice.findById(id);
     }
@@ -45,16 +45,16 @@ public class Entrada_ProductoController {
         return entrada_productoservice.add(e);
     }
     
-    @PutMapping("/(id)")
+    @PutMapping("/{id}")
     public Entrada_ProductoEntity update(@PathVariable Long id, @RequestBody Entrada_ProductoEntity e){
         e.setCodigo(id);
         return entrada_productoservice.update(e);
     }
     
-    @DeleteMapping
-    public Entrada_ProductoEntity delete(@PathVariable Long id, @RequestBody Entrada_ProductoEntity e){
-        Entrada_ProductoEntity objcategoria = new Entrada_ProductoEntity();
-        objcategoria.setEstado(false);
+    @DeleteMapping("/{id}")
+    public Entrada_ProductoEntity delete(@PathVariable Long id){
+        Entrada_ProductoEntity objentprod = new Entrada_ProductoEntity();
+        objentprod.setEstado(false);
         return entrada_productoservice.delete(Entrada_ProductoEntity.builder().codigo(id).build());
     }
 }
