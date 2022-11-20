@@ -24,7 +24,10 @@ create table Destino(
     foreign key (codDistrito) references Distrito(codDistrito)
 );
 insert into Destino(nomdestino,coddistrito,estado) values 
-("ventas",2,1);
+("ventas",2,1),
+("almacen",3,1),
+("ventas",1,1),
+("ventas",4,1);
 select * from Destino;
 -- ---------------------------------------------------------------------------------- 
 create table Distrito(
@@ -103,31 +106,35 @@ select * from Proveedores;
 insert into Proveedores(nombprov,rucprov,direccionprov,correoprov,telefprov,estado) values
 ("TechNews Co.","12345678910","Av. Technologi N° 1000","technewsco@gmail.com",957182465,1),
 ("HealthApp Co.","15975314630","Av. BootCamp N° 2000","healthappco@gmail.com",945916972,1),
+("Cinestres Co.","14789632530","Av. VisualStudio Code N° 3000","cinestresco@gmail.com",947914920,1),
+("TechNews Co.","12345678910","Av. Technologi N° 1000","technewsco@gmail.com",957182465,1),
+("HealthApp Co.","15975314630","Av. BootCamp N° 2000","healthappco@gmail.com",945916972,1),
+("Cinestres Co.","14789632530","Av. VisualStudio Code N° 3000","cinestresco@gmail.com",947914920,1),
+("TechNews Co.","12345678910","Av. Technologi N° 1000","technewsco@gmail.com",957182465,1),
+("HealthApp Co.","15975314630","Av. BootCamp N° 2000","healthappco@gmail.com",945916972,1),
 ("Cinestres Co.","14789632530","Av. VisualStudio Code N° 3000","cinestresco@gmail.com",947914920,1);
 
 -- --------------------------------------------------------------------------------------------------------
 create table Entrada_Producto(
 	codEntrada int primary key auto_increment,
     codEmpleado int not null,
-    coddest int not null,
     fechaentrada date not null,
     estado bit default 1 not null,
-    foreign key (codDest) references Destino(codDestino),
     foreign key (codEmpleado) references Empleado(codemple)
 );
 select * from Entrada_Producto;
-insert into Entrada_Producto(fechaentrada,coddest,codempleado,estado) values
-("2022-09-20",1,2,1),
-("2022-08-21",1,2,1),
-("2022-09-24",1,3,1),
-("2022-09-26",1,1,1),
-("2022-07-28",1,4,1),
-("2022-09-12",1,3,1),
-("2022-06-24",1,2,1),
-("2022-09-13",1,1,1),
-("2022-11-16",1,4,1),
-("2022-10-24",1,2,1),
-("2022-09-05",1,3,1);
+insert into Entrada_Producto(fechaentrada,codempleado,estado) values
+("2022-09-20",2,1),
+("2022-08-21",2,1),
+("2022-09-24",3,1),
+("2022-09-26",1,1),
+("2022-07-28",4,1),
+("2022-09-12",3,1),
+("2022-06-24",2,1),
+("2022-09-13",1,1),
+("2022-11-16",4,1),
+("2022-10-24",2,1),
+("2022-09-05",3,1);
 
 create table Salida_Producto(
 	codSalida int primary key auto_increment,
@@ -154,26 +161,27 @@ insert into Salida_Producto(fechasalida,coddestino,codempleado,estado) values
 
 -- -------------------------------------------------------------------------------------------------------------
 create table Detalle_Entrada(
-	codDetalle_Entrada int primary key auto_increment,
-	codEntrada int not null,
+	coddetalle_entrada int primary key auto_increment,
+	codentrada int not null,
     codprod int not null,
-    cantidad int not null,    
+    cantidad int not null,
+    coddest int not null,
+    codprov int not null,
     estado bit default 1 not null,
     foreign key (codEntrada) references Entrada_Producto(codEntrada),
-    foreign key (codProd) references Productos(codprod)
+    foreign key (codProd) references Productos(codprod),
+    foreign key (coddest) references Destino(coddestino),
+    foreign key (codprov) references Proveedor(codprov)
 );
 select * from Detalle_Entrada;
-insert into Detalle_Entrada(codprod,cantidad,estado)values
-(1,20,1),
-(3,80,1),
-(7,60,1),
-(8,30,1),
-(10,100,1),
-(1,20,1),
-(3,90,1),
-(9,30,1),
-(4,10,1),
-(2,40,1);
+insert into Detalle_Entrada(codentrada,codprod,cantidad,coddest,codprov,estado)values
+(2,1,20,2,4,1),
+(3,3,80,1,2,1),
+(4,8,30,2,3,1),
+(5,1,100,2,2,1),
+(6,1,20,1,3,1),
+(7,3,90,1,1,1),
+(8,2,40,3,4,1);
 
 -- ------------------------------------------------------------------------------------------------------------
 
@@ -187,14 +195,9 @@ create table Detalle_Salida(
 	foreign key (codSalida) references Salida_Producto(codSalida)
 );
 select * from Detalle_Salida;
-insert into Detalle_Salida(codprod,cantidad,estado)values
-(1,20,1),
-(4,5,1),
-(3,7,1),
-(8,3,1),
-(2,13,1),
-(11,22,1),
-(3,9,1),
-(6,25,1),
-(9,32,1),
-(2,16,1);
+insert into Detalle_Salida(codsalida,codprod,cantidad,estado)values
+(1,1,20,1),
+(2,4,5,1),
+(3,3,7,1),
+(4,5,3,1),
+(5,2,13,1)

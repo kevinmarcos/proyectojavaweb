@@ -34,6 +34,10 @@ public class Detalle_EntradaEntity implements Serializable{
     @NotNull
     private String cantidad;
     
+    @Column(name="codprod")
+    @NotNull
+    private String codprod;
+        
     @Column(name="estado")
     @NotNull
     private boolean estado;
