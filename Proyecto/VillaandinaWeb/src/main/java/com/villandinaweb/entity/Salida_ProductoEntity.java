@@ -34,6 +34,10 @@ public class Salida_ProductoEntity implements Serializable{
     @NotNull
     private String fecha;
     
+    @Column(name="direccion")
+    @NotNull
+    private String direccion;
+    
     @Column(name="estado")
     @NotNull
     private boolean estado;

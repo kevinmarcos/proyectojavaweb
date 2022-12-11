@@ -45,4 +45,8 @@ public class Entrada_ProductoEntity implements Serializable{
     @ManyToOne  
     @JoinColumn(name="codempleado" ,nullable = false)
     private EmpleadoEntity empleado;
+    
+    @ManyToOne  
+    @JoinColumn(name="coddestino" ,nullable = false)
+    private DestinoEntity destino;
 }
