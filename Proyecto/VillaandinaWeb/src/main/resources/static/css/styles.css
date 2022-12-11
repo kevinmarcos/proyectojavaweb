@@ -1,0 +1,273 @@
+
+:root{
+    --color1: rgb(177, 0, 0);
+    --color2: #dfdfdf;
+    --color3: #097da0;
+    --color4: rgb(85, 81, 81);
+    --color5: #000000;
+}
+
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--color2);
+}
+
+
+
+/* CONFIG DEL MENU */
+
+header{
+    background-color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    box-shadow: 2px 1px 6px black;
+}
+
+.menu{
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu .logo{
+    display: inline-block;
+    margin-right: 1em;
+}
+
+.menu .logo img{
+    height: 60px;
+}
+
+.menu .btn-menu{
+    display: none;
+}
+
+.enlaces{
+    display: inline-block;
+    text-align: right;
+}
+
+.enlaces a{
+    color: var(--color2);
+    text-decoration: none;
+    padding: 1.2em;
+    font-size: 1em;
+    font-family: 'Roboto' cursive;
+    font-weight: bold;
+    text-align: center;
+}
+
+.enlaces a:hover{
+    color: var(--color1);
+  
+}
+
+.headroom{
+    transition: transform .3s ease;
+}
+
+.headroom--pinned{
+    transform: translateY(0%);
+}
+
+.headroom--unpinned{
+    transform: translateY(-100%);
+}
+
+/* PROPIEDADES PARA DISP MOV */
+
+@media screen and (max-width:1100px){
+
+    header .menu{
+        flex-direction: column;
+    }
+    header .menu .logo{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+.enlaces{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+    header .menu .btn-menu{
+        display: inline-block;
+        color: var(--color1);
+        font-size: 2em;
+        margin-top: .2em;
+    }
+
+}
+
+
+
+/* FIN DE PROPIEDADES PARA DISP MOV */
+
+
+/* FIN DE CONFIG DEL MENU */
+
+/* CONFIG DEL BANNER */
+.banner{
+    position: relative;
+    padding: 16em 0 18em;
+    background: linear-gradient(to right, red, darkblue);
+    top: 3.8em;
+}
+
+.banner::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: darkblue;
+    mix-blend-mode: color;
+    opacity: .5;
+}
+
+.banner_img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    opacity: .4;
+}
+
+.container{
+    position: relative;
+    z-index: 10;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.centrado{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;   
+}
+
+.banner_titulo{
+    color: white;
+    font-size: 2.5em;
+    font-family: 'Lilita One' , cursive;
+    text-transform: uppercase;
+}
+.banner_parrafo{
+    color: white;
+    font-size: 1.2em;
+    font-family: 'Roboto', cursive;
+
+}
+
+.banner_boton{
+    border: none;
+    background-color: var(--color1);
+    padding: .8em 1.6em;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-family: 'Roboto' ,cursive;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    transition: background .3s linear;
+    display: inline-block;
+    margin-top: 1em;
+}
+
+.banner_boton:hover{
+    background-color: var(--color2);
+    color:var(--color1);
+    font-size: 1.1em;
+    font-family: 'Roboto' cursive;
+}
+
+@media screen and (max-width: 640px){
+    .banner_boton{
+        padding: .3em 0,8em;
+        font-size: 1em;
+    }
+
+    .banner_titulo{
+        font-size: 1.5em;
+    }
+
+    .banner_parrafo{
+        font-size: 1em;
+    }
+}
+
+/* FIN DE CONFIG DE BANNER */
+
+/* CONFIG CARDS */
+.title-cursos{
+    text-align: center;
+    padding-bottom: 1em;
+    font-weight: bold;
+}
+
+.cards-grid{
+    display: grid;
+    gap: 3em;  /*mide la separacion*/
+    grid-template-columns: repeat(auto-fill,minmax(250px, 1fr)); /*para que sea responsive*/
+    padding-bottom: 2em;
+}
+
+.card{ 
+    background-color: white;
+    border-radius: 0.8em;
+}
+
+.card-img img{
+    max-width: 100%;
+    height: auto;
+    border-radius: .8em .8em 0 0;
+}
+
+.card-title{
+    font-size: 18px;
+    font-family: 'Lilita One';
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--color4);
+    margin-top: 0.5em;
+    margin-bottom: 1.2em;
+}
+
+.card-info{
+    text-decoration: none;
+    color: var(--color1);
+    font-weight: bold;
+    padding: 0.5em 5em;
+    border: 1px solid var(--color1);
+    border-radius: 0.4em 0.4em 0.4em 0.4em;
+    font-size: 1em;
+}
+
+.card-info:hover{
+    color: var(--color2);
+    background-color: #c24801;
+    transition: background .4s linear;
+}

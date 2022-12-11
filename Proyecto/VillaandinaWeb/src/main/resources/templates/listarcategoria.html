@@ -36,6 +36,41 @@
         </div>
       </nav>
       <br><br>
+      <div class="card text-center m-4">
+        <div class="card-header">
+          Lista de Categorías
+        </div>
+        <div class="card-body">
+            <div class="text-end">
+                <a th:href="@{/registrocategoria}" class="btn btn-danger">Agregar Categoria</a>
+            </div>
+        </div>
+        <div class="card-footer text-muted">
+           Villa Andina
+        </div>
+
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <td>Código</td>
+                    <td>Nombre</td>
+                    <td>Estado</td>
+                    <td>Editar</td>
+                    <td>Eliminar</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="categoria : ${categoria}">
+                    <td th:text="${categoria.codigo}"></td>
+                    <td th:text="${categoria.nombre}"></td>
+                    <td th:text="${categoria.estado}? 'Habilitado':'Deshabilitado'"></td>
+                    <td><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i> Editar</button></td>
+                    <td><button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Eliminar</button></td>
+                </tr>
+            </tbody>
+          </table>
+
+      </div>
 
 <script src="js/bootstrap.js"></script>
 </body>
