@@ -45,11 +45,11 @@
         <br><br>
         <div class="card text-center m-4">
             <div class="card-header">
-                Lista de Productos
+                Lista de DetalleSalida
             </div>
             <div class="card-body">
                 <div class="text-end">
-                    <a th:href="@{/registroproductos}" class="btn btn-danger">Agregar Producto</a>
+                    <a th:href="@{/registrodestino}" class="btn btn-danger">Agregar DetalleSalida</a>
                 </div>
             </div>
             <div class="card-footer text-muted">
@@ -60,23 +60,21 @@
                 <thead class="table-dark">
                     <tr>
                         <td>Código</td>
-                        <td>Nombre</td>
-                        <td>Categoría</td>
                         <td>Cantidad</td>
-                        <td>Duración</td>
                         <td>Estado</td>
+                        <td>Productos</td>
+                        <td>Salida_Producto</td>
                         <td>Editar</td>
                         <td>Eliminar</td>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="productos : ${productos}">
-                        <td th:text="${productos.codigo}"></td>
-                        <td th:text="${productos.nombre}"></td>
-                        <td th:text="${productos.categoria.nombre}"></td>
-                        <td th:text="${productos.cantidad}"></td>
-                        <td th:text="${productos.duracion}"></td>
-                        <td th:text="${productos.estado}? 'Habilitado':'Deshabilitado'"></td>
+                    <tr th:each="detallesalida : ${detallesalida}">
+                        <td th:text="${detallesalida.codigo}"></td>
+                        <td th:text="${detallesalida.cantidad}"></td>
+                        <td th:text="${detallesalida.salida_producto.nombre}"></td>
+                        <td th:text="${detallesalida.productos.nombre}"></td>
+                        <td th:text="${detallesalida.estado}? 'Habilitado':'Deshabilitado'"></td>
                         <td><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i> Editar</button></td>
                         <td><button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Eliminar</button></td>
                     </tr>
