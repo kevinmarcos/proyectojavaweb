@@ -21,21 +21,21 @@ public class ProveedoresControllerWeb {
         return "listarproveedor";
     }
  
-    @GetMapping("/registroproveedores")
+    @GetMapping("/registroproveedor")
     public String MostrarFormularioRegistro() {
         //es el nombre que tendra la pagina web
-        return "registroproveedores";
+        return "registroproveedor";
     }
     
-    @ModelAttribute("categoria")
+    @ModelAttribute("proveedores")
     public ProveedoresEntity RegistroCategoria() {
         return new ProveedoresEntity();
     }
     
-    @PostMapping("/registroproveedores")
+    @PostMapping("/registroproveedor")
     public String RegistroCProductos(
             @ModelAttribute("proveedores") ProveedoresEntity c) {
         servicio.add(c);
-        return "redirect:/listarproveedores?correcto";
+        return "redirect:/listarproveedor?correcto";
     }
 }

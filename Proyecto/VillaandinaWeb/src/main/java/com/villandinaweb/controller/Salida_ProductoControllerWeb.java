@@ -34,7 +34,7 @@ public class Salida_ProductoControllerWeb {
         //es el nombre que tendra la pagina web
         modelo.addAttribute("empleado", servicioempleado.findAll());
         modelo.addAttribute("destino", serviciodestino.findAll());
-        return "registroentradaproducto";
+        return "registrosalidaproducto";
     }
     @ModelAttribute("salidaproducto")
     public Salida_ProductoEntity RegistroProductos() {
@@ -43,7 +43,7 @@ public class Salida_ProductoControllerWeb {
     
     @PostMapping("/registrosalidaproducto")
     public String RegistroCProductos(
-            @ModelAttribute("entradaproducto") Salida_ProductoEntity c) {
+            @ModelAttribute("salidaproducto") Salida_ProductoEntity c) {
         servicio.add(c);
         return "redirect:/listarsalidaproducto?correcto";
     }

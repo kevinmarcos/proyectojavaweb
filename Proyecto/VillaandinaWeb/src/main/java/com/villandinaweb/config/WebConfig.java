@@ -17,7 +17,7 @@ public class WebConfig implements WebMvcConfigurer{
     public ClassLoaderTemplateResolver templateResolver() {
         var templateResolver = new ClassLoaderTemplateResolver();
         //indicando la carpeta donde estan las paginas html
-        templateResolver.setPrefix("templates/");
+        templateResolver.setPrefix("templates");
         //para que nos e guarde en memoria cache
         templateResolver.setCacheable(false);
         //la extension de las paginas

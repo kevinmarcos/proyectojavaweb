@@ -41,7 +41,7 @@ public class DestinoControllerWeb {
     public String RegistroCProductos(
             @ModelAttribute("destino") DestinoEntity c) {
         servicio.add(c);
-        return "redirect:/listarproductos?correcto";
+        return "redirect:/listardestino?correcto";
     }
 }
 

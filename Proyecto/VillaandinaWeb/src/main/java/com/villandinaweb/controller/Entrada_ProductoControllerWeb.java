@@ -33,7 +33,7 @@ public class Entrada_ProductoControllerWeb {
     public String MostrarFormularioRegistro(Model modelo) {
         //es el nombre que tendra la pagina web
         modelo.addAttribute("empleado", servicioempleado.findAll());
-        modelo.addAttribute("distrito", serviciodestino.findAll());
+        modelo.addAttribute("destino", serviciodestino.findAll());
         return "registroentradaproducto";
     }
     @ModelAttribute("entradaproducto")
