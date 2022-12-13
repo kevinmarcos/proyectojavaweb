@@ -48,25 +48,25 @@
                 Lista de Proveedores
             </div>
             <div th:if=${param.correcto}>
-                    <div class="alert alert-success" role="alert">
-                        Se registro exitosamente                  
-                    </div>
+                <div class="alert alert-success" role="alert">
+                    Se registro exitosamente                  
                 </div>
-                <div th:if=${param.actualizo}>
-                    <div class="alert alert-success" role="alert">
-                        Se actualizo exitosamente                  
-                    </div>
+            </div>
+            <div th:if=${param.actualizo}>
+                <div class="alert alert-success" role="alert">
+                    Se actualizo exitosamente                  
                 </div>
-                <div th:if=${param.elimino}>
-                    <div class="alert alert-success" role="alert">
-                        Se elimino exitosamente                  
-                    </div>
+            </div>
+            <div th:if=${param.elimino}>
+                <div class="alert alert-success" role="alert">
+                    Se elimino exitosamente                  
                 </div>
-                <div th:if=${param.habilito}>
-                    <div class="alert alert-success" role="alert">
-                        Se habilito exitosamente                  
-                    </div>
+            </div>
+            <div th:if=${param.habilito}>
+                <div class="alert alert-success" role="alert">
+                    Se habilito exitosamente                  
                 </div>
+            </div>
             <div class="card-body">
                 <div class="text-end">
                     <a th:href="@{/registroproveedor}" class="btn btn-danger">Agregar Proveedor</a>
@@ -77,32 +77,36 @@
                 Villa Andina
             </div>
 
-            <table class="table">
-                <thead class="table-dark">
-                    <tr>
-                        <td>Código</td>
-                        <td>Ruc</td>
-                        <td>Nombre</td>
-                        <td>Dirección</td>
-                        <td>Correo</td>
-                        <td>Telefono</td>
-                        <td>Estado</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="proveedores : ${proveedores}">
-                        <td th:text="${proveedores.codigo}"></td>
-                        <td th:text="${proveedores.ruc}"></td>
-                        <td th:text="${proveedores.nombre}"></td>
-                        <td th:text="${proveedores.direccion}"></td>
-                        <td th:text="${proveedores.correo}"></td>
-                        <td th:text="${proveedores.telefono}"></td>
-                        <td th:text="${proveedores.estado}? 'Habilitado':'Deshabilitado'"></td>
-                        <td><a class="btn btn-primary" th:href="@{/actualizarproveedor/{id}(id=${proveedores.codigo})}"><i class="fa-solid fa-pen-to-square"></i> Editar</a></td>
-                        <td><a class="btn btn-danger" th:href="@{/eliminaproveedor/{id}(id=${proveedores.codigo})}"><i class="fa-solid fa-trash-can"></i> Eliminar</a></td>
-                    </tr>
-                </tbody>
-            </table>
+            <form th:action="@{/actualizarproveedor/{id}(id=${proveedores.codigo})}" method="post" th:object="${proveedores}">
+                <div class="mb-3">
+                    <label for="txtNom" class="form-label">Ruc:</label>
+                    <input type="text" class="form-control" id="txtRuc" th:field="*{ruc}"  th:value="${proveedores.ruc}" required>   
+                </div>
+                <div class="mb-3">
+                    <label for="txtNom" class="form-label">Nombre:</label>
+                    <input type="text" class="form-control" id="txtNomb" th:field="*{nombre}"  th:value="${proveedores.nombre}" required>   
+                </div>
+                <div class="mb-3">
+                    <label for="txtNom" class="form-label">Dirección:</label>
+                    <input type="text" class="form-control" id="txtDirec" th:field="*{direccion}"  th:value="${proveedores.direccion}" required>   
+                </div>
+                <div class="mb-3">
+                    <label for="txtNom" class="form-label">Correo:</label>
+                    <input type="text" class="form-control" id="txtCor" th:field="*{correo}"  th:value="${proveedores.correo}" required>   
+                </div>
+                <div class="mb-3">
+                    <label for="txtNom" class="form-label">Telefono:</label>
+                    <input type="text" class="form-control" id="txtTelf" th:field="*{telefono}"  th:value="${proveedores.telefono}" required>   
+                </div>
+                <div class="mb-3">
+                    <input class="form-check-input" type="checkbox"  id="chkEst" th:field="*{estado}">
+                    <label class="form-check-label" for="chkEst">
+                        Habilitado
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-success">Actualizar</button><br>
+
+            </form>
 
         </div>
 

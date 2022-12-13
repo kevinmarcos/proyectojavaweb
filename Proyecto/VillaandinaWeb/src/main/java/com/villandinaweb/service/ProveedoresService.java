@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface ProveedoresService {
     List<ProveedoresEntity> findAll();
 
-    Optional<ProveedoresEntity> findById(Long id);
+    ProveedoresEntity findById(Long id);
 
     ProveedoresEntity add(ProveedoresEntity p);
 
@@ -17,4 +17,8 @@ public interface ProveedoresService {
     ProveedoresEntity delete(ProveedoresEntity p);
 
     List<ProveedoresEntity> findAllCustom();
+    
+    List<ProveedoresEntity> findAllCustomEnable();
+    
+    ProveedoresEntity enable(ProveedoresEntity p);
 }

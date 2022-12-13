@@ -35,7 +35,7 @@ public class ProveedoresController {
     }
     
     @GetMapping("/{id}")
-    public Optional<ProveedoresEntity> findById(@PathVariable Long id){
+    public ProveedoresEntity findById(@PathVariable Long id){
         return proveedoresservice.findById(id);
     }
     

@@ -45,11 +45,16 @@
         <br><br>
         <div class="card text-center m-4">
             <div class="card-header">
-                Lista de Entrada_Producto
+                Lista de Proveedores
             </div>
+            <div th:if=${param.habilito}>
+                    <div class="alert alert-success" role="alert">
+                        Se habilitó exitosamente                  
+                    </div>
+                </div>
             <div class="card-body">
-                <div class="text-end">
-                    <a th:href="@{/registroentradaproducto}" class="btn btn-danger">Agregar Entrada_Producto</a>
+                <div class="text-start">
+                    <a th:href="@{/listarproveedor}" class="btn btn-danger">Regresar</a>
                 </div>
             </div>
             <div class="card-footer text-muted">
@@ -60,23 +65,25 @@
                 <thead class="table-dark">
                     <tr>
                         <td>Código</td>
-                        <td>Fecha</td>
-                        <td>Empleado</td>
-                        <td>Destino</td>
+                        <td>Ruc</td>
+                        <td>Nombre</td>
+                        <td>Dirección</td>
+                        <td>Correo</td>
+                        <td>Telefono</td>
                         <td>Estado</td>
-                        <td>Editar</td>
-                        <td>Eliminar</td>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="entradaproducto : ${entradaproducto}">
-                        <td th:text="${entradaproducto.codigo}"></td>
-                        <td th:text="${entradaproducto.fecha}"></td>
-                        <td th:text="${entradaproducto.empleado.nombre}"></td>
-                        <td th:text="${entradaproducto.destino.nombre}"></td>
-                        <td th:text="${entradaproducto.estado}? 'Habilitado':'Deshabilitado'"></td>
-                        <td><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i> Editar</button></td>
-                        <td><button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Eliminar</button></td>
+                    <tr th:each="proveedores : ${proveedores}">
+                        <td th:text="${proveedores.codigo}"></td>
+                        <td th:text="${proveedores.ruc}"></td>
+                        <td th:text="${proveedores.nombre}"></td>
+                        <td th:text="${proveedores.direccion}"></td>
+                        <td th:text="${proveedores.correo}"></td>
+                        <td th:text="${proveedores.telefono}"></td>
+                        <td th:text="${proveedores.estado}? 'Habilitado':'Deshabilitado'"></td>
+                        <td><a class="btn btn-primary" th:href="@{/habilitarproveedor/{id}(id=${proveedores.codigo})}"><i class="fa-solid fa-pen-to-square"></i> Habilitar</a></td>
+                        
                     </tr>
                 </tbody>
             </table>

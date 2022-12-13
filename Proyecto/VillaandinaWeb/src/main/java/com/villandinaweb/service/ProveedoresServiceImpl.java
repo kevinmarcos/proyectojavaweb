@@ -21,8 +21,8 @@ public class ProveedoresServiceImpl implements ProveedoresService{
     }
 
     @Override
-    public Optional<ProveedoresEntity> findById(Long id) {
-        return proveedoresrepositorio.findById(id);
+    public ProveedoresEntity findById(Long id) {
+        return proveedoresrepositorio.findById(id).get();
     }
 
     @Override
@@ -48,5 +48,17 @@ public class ProveedoresServiceImpl implements ProveedoresService{
     @Override
     public List<ProveedoresEntity> findAllCustom() {
         return proveedoresrepositorio.findAllCustom();
+    }
+    
+    @Override
+    public List<ProveedoresEntity> findAllCustomEnable() {
+        return proveedoresrepositorio.findAllCustomEnable();
+    }
+    
+    @Override
+    public ProveedoresEntity enable(ProveedoresEntity p) {
+        ProveedoresEntity objcarrera = proveedoresrepositorio.getById(p.getCodigo());
+        objcarrera.setEstado(true);
+        return proveedoresrepositorio.save(objcarrera);
     }
 }
