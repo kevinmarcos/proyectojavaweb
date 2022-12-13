@@ -41,6 +41,64 @@
             </div>
         </nav>
         <div class="container">
+<<<<<<< HEAD
+=======
+          <a class="navbar-brand" href="#">
+            <img src="img/logo.png" width="120">
+          </a>
+                <div class="enlaces" id="enlaces">
+                    <a href="listarproductos">PRODUCTOS</a>
+                    <a href="listarcategoria">CATEGORIA</a>
+                    <a href="listarproveedor">PROVEEDORES</a>
+                    <a href="listarempleado">EMPLEADOS</a>
+                    <a href="listardestino">DESTINOS</a>
+                    <a href="listardistrito">DISTRITOS</a>
+                    <a href="listarproveedor">PROVEEDORES</a>
+                    <a href="listarentradaproducto">ENTRADA_PRODUCTO</a>
+                    <a href="listarsalidaproducto">SALIDA_PRODUCTO</a>
+                    <a href="listardetalle_entrada">DETALLE_ENTRADA</a>
+                    <a href="listardetalle_salida">DETALLE_SALIDA</a>
+                </div>
+        </div>
+        <div class="d_flex">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Thony Leca
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+        </div>
+      </nav>
+    <div class="container">
+               
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 main">
+                <form th:action="@{/registrocategoria}" method="post" th:object="${categoria}" style="width: 30em; margin:auto ">
+                    <h1 class="titulo">Registro de categorías</h1>
+                    <div class="mb-3">
+                    <label for="txtNom" class="form-label">Nombre:</label>
+                    <br>
+                    <input type="text" class="form-control" id="txtNom" th:field="*{nombre}" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                    <label for="txtEst" class="form-label">Estado:</label>
+                    <br>
+                    <input type="checkbox" class="form-check-input" id="Est" th:field="*{estado}" required>
+                    <label class="form-check-label" for="Est">
+                    Habilitado
+                    </label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-danger">Registrar</button><br>
+   
+                </form>
+            </div>
+        </div>
+    </div>
+>>>>>>> 4cdf8fe4ca2aa7581f35615d32160bf2b63e68da
 
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 main">

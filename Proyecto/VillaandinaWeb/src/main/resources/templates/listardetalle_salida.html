@@ -13,7 +13,7 @@
     <body>
         <nav class="navbar navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" th:href="@{/}">
+                <a class="navbar-brand" href="#">
                     <img src="img/logo.png" width="120">
                 </a>
                 <div class="enlaces" id="enlaces">
@@ -44,11 +44,11 @@
         <br><br>
         <div class="card text-center m-4">
             <div class="card-header">
-                Lista de Destinos
+                Lista de DetalleSalida
             </div>
             <div class="card-body">
                 <div class="text-end">
-                    <a th:href="@{/registrodestino}" class="btn btn-danger">Agregar Destino</a>
+                    <a th:href="@{/registrodestino}" class="btn btn-danger">Agregar DetalleSalida</a>
                 </div>
             </div>
             <div class="card-footer text-muted">
@@ -59,19 +59,21 @@
                 <thead class="table-dark">
                     <tr>
                         <td>Código</td>
-                        <td>Nombre</td>
-                        <td>Distrito</td>
+                        <td>Cantidad</td>
                         <td>Estado</td>
+                        <td>Productos</td>
+                        <td>Salida_Producto</td>
                         <td>Editar</td>
                         <td>Eliminar</td>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="destino : ${destino}">
-                        <td th:text="${destino.codigo}"></td>
-                        <td th:text="${destino.nombre}"></td>
-                        <td th:text="${destino.distrito.nombre}"></td>
-                        <td th:text="${destino.estado}? 'Habilitado':'Deshabilitado'"></td>
+                    <tr th:each="detallesalida : ${detallesalida}">
+                        <td th:text="${detallesalida.codigo}"></td>
+                        <td th:text="${detallesalida.cantidad}"></td>
+                        <td th:text="${detallesalida.salida_producto.nombre}"></td>
+                        <td th:text="${detallesalida.productos.nombre}"></td>
+                        <td th:text="${detallesalida.estado}? 'Habilitado':'Deshabilitado'"></td>
                         <td><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i> Editar</button></td>
                         <td><button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Eliminar</button></td>
                     </tr>

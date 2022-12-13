@@ -39,14 +39,13 @@ header{
     justify-content: space-between;
     align-items: center;
 }
-
-.menu .logo{
+.logo{
     display: inline-block;
     margin-right: 1em;
 }
 
-.menu .logo img{
-    height: 60px;
+.logo img{
+    height: 80px;
 }
 
 .menu .btn-menu{
@@ -61,8 +60,8 @@ header{
 .enlaces a{
     color: var(--color2);
     text-decoration: none;
-    padding: 1.2em;
-    font-size: 1em;
+    padding: 1em;
+    font-size: 0.9em;
     font-family: 'Roboto' cursive;
     font-weight: bold;
     text-align: center;
