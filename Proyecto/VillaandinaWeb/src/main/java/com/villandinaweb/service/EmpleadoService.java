@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface EmpleadoService {
     List<EmpleadoEntity> findAll();
 
-    Optional<EmpleadoEntity> findById(Long id);
+    EmpleadoEntity findById(Long id);
 
     EmpleadoEntity add(EmpleadoEntity e);
 
@@ -17,4 +17,8 @@ public interface EmpleadoService {
     EmpleadoEntity delete(EmpleadoEntity e);
 
     List<EmpleadoEntity> findAllCustom();
+    
+    List<EmpleadoEntity> findAllCustomEnable();
+    
+    EmpleadoEntity enable(EmpleadoEntity p);
 }

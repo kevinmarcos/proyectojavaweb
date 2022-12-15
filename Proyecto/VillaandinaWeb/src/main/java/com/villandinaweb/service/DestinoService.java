@@ -8,7 +8,7 @@ public interface DestinoService {
 
     List<DestinoEntity> findAll();
 
-    Optional<DestinoEntity> findById(Long id);
+    DestinoEntity findById(Long id);
 
     DestinoEntity add(DestinoEntity d);
 
@@ -17,4 +17,8 @@ public interface DestinoService {
     DestinoEntity delete(DestinoEntity d);
 
     List<DestinoEntity> findAllCustom();
+    
+    List<DestinoEntity> findAllCustomEnable();
+    
+    DestinoEntity enable(DestinoEntity p);
 }

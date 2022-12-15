@@ -20,8 +20,8 @@ public class Detalle_EntradaServiceImpl implements Detalle_EntradaService{
     }
 
     @Override
-    public Optional<Detalle_EntradaEntity> findById(Long id) {
-        return detalle_entradarepositorio.findById(id);
+    public Detalle_EntradaEntity findById(Long id) {
+        return detalle_entradarepositorio.findById(id).get();
     }
 
     @Override
@@ -47,5 +47,17 @@ public class Detalle_EntradaServiceImpl implements Detalle_EntradaService{
     @Override
     public List<Detalle_EntradaEntity> findAllCustom() {
         return detalle_entradarepositorio.findAllCustom();
+    }
+    
+    @Override
+    public List<Detalle_EntradaEntity> findAllCustomEnable() {
+        return detalle_entradarepositorio.findAllCustomEnable();
+    }
+    
+    @Override
+    public Detalle_EntradaEntity enable(Detalle_EntradaEntity p) {
+        Detalle_EntradaEntity objcarrera = detalle_entradarepositorio.getById(p.getCodigo());
+        objcarrera.setEstado(true);
+        return detalle_entradarepositorio.save(objcarrera);
     }
 }

@@ -20,8 +20,8 @@ public class EmpleadoServiceImpl implements EmpleadoService{
     }
 
     @Override
-    public Optional<EmpleadoEntity> findById(Long id) {
-        return empleadorepositorio.findById(id);
+    public EmpleadoEntity findById(Long id) {
+        return empleadorepositorio.findById(id).get();
     }
 
     @Override
@@ -47,5 +47,17 @@ public class EmpleadoServiceImpl implements EmpleadoService{
     @Override
     public List<EmpleadoEntity> findAllCustom() {
         return empleadorepositorio.findAllCustom();
+    }
+    
+    @Override
+    public List<EmpleadoEntity> findAllCustomEnable() {
+        return empleadorepositorio.findAllCustomEnable();
+    }
+    
+    @Override
+    public EmpleadoEntity enable(EmpleadoEntity p) {
+        EmpleadoEntity objcarrera = empleadorepositorio.getById(p.getCodigo());
+        objcarrera.setEstado(true);
+        return empleadorepositorio.save(objcarrera);
     }
 }

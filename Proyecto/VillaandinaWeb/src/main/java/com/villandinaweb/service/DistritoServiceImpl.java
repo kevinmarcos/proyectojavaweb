@@ -22,8 +22,8 @@ public class DistritoServiceImpl implements DistritoService{
     }
 
     @Override
-    public Optional<DistritoEntity> findById(Long id) {
-        return distritorepositorio.findById(id);
+    public DistritoEntity findById(Long id) {
+        return distritorepositorio.findById(id).get();
     }
 
     @Override
@@ -49,5 +49,17 @@ public class DistritoServiceImpl implements DistritoService{
     @Override
     public List<DistritoEntity> findAllCustom() {
         return distritorepositorio.findAllCustom();
+    }
+    
+    @Override
+    public List<DistritoEntity> findAllCustomEnable() {
+        return distritorepositorio.findAllCustomEnable();
+    }
+    
+    @Override
+    public DistritoEntity enable(DistritoEntity p) {
+        DistritoEntity objcarrera = distritorepositorio.getById(p.getCodigo());
+        objcarrera.setEstado(true);
+        return distritorepositorio.save(objcarrera);
     }
 }

@@ -35,7 +35,7 @@ public class DestinoController {
     }
     
     @GetMapping("/{id}")
-    public Optional<DestinoEntity> findById(@PathVariable Long id){
+    public DestinoEntity findById(@PathVariable Long id){
         return destinoservice.findById(id);
     }
     

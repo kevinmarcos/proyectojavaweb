@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,19 +26,19 @@ public class Salida_ProductoEntity implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="codsalida")
-    @NotNull
+    
     private long codigo;
     
     @Column(name="fechasalida")
-    @NotNull
+    
     private String fecha;
     
     @Column(name="direccion")
-    @NotNull
+    
     private String direccion;
     
     @Column(name="estado")
-    @NotNull
+    
     private boolean estado;
     
     @ManyToOne  

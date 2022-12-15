@@ -54,20 +54,19 @@ public class ProveedoresControllerWeb {
     }
     
     @GetMapping("/eliminaproveedor/{id}")
-    public String EliminaCurso(@PathVariable Long id) {
+    public String EliminaCurso(@PathVariable Long id, Model modelo) {
         ProveedoresEntity objcurso = servicio.findById(id);
         servicio.delete(objcurso);
         return "redirect:/listarproveedor?elimino";
     }
     
-    
     @GetMapping("/habilitarproveedor")
-    public String PaginaProveedorEnable(Model modelo) {
+    public String PaginaHabilitarCurso(Model modelo) {
         modelo.addAttribute("proveedores", servicio.findAllCustomEnable());
         return "habilitarproveedor";
     }
     
-    @GetMapping("/habilitarproveedor/{id}")
+    @GetMapping("/habilitaproveedor/{id}")
     public String HabilitaCurso(@PathVariable Long id, Model modelo) {
         ProveedoresEntity objcurso = servicio.findById(id);
         servicio.enable(objcurso);

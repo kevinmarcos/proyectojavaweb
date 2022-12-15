@@ -82,7 +82,7 @@
                         <td th:text="${proveedores.correo}"></td>
                         <td th:text="${proveedores.telefono}"></td>
                         <td th:text="${proveedores.estado}? 'Habilitado':'Deshabilitado'"></td>
-                        <td><a class="btn btn-primary" th:href="@{/habilitarproveedor/{id}(id=${proveedores.codigo})}"><i class="fa-solid fa-pen-to-square"></i> Habilitar</a></td>
+                        <td><a class="btn btn-primary" th:href="@{/habilitaproveedor/{id}(id=${proveedores.codigo})}"><i class="fa-solid fa-pen-to-square"></i> Habilitar</a></td>
                         
                     </tr>
                 </tbody>

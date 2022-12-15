@@ -33,7 +33,7 @@ public class EmpleadoController {
     }
     
     @GetMapping("/{id}")
-    public Optional<EmpleadoEntity> findById(@PathVariable Long id){
+    public EmpleadoEntity findById(@PathVariable Long id){
         return empleadoservice.findById(id);
     }
     

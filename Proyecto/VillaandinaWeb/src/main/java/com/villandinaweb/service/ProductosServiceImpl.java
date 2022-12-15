@@ -21,8 +21,8 @@ public class ProductosServiceImpl implements ProductosService{
     }
 
     @Override
-    public Optional<ProductosEntity> findById(Long id) {
-        return productosrepositorio.findById(id);
+    public ProductosEntity findById(Long id) {
+        return productosrepositorio.findById(id).get();
     }
 
     @Override
@@ -48,5 +48,17 @@ public class ProductosServiceImpl implements ProductosService{
     @Override
     public List<ProductosEntity> findAllCustom() {
         return productosrepositorio.findAllCustom();
+    }
+    
+    @Override
+    public List<ProductosEntity> findAllCustomEnable() {
+        return productosrepositorio.findAllCustomEnable();
+    }
+    
+    @Override
+    public ProductosEntity enable(ProductosEntity p) {
+        ProductosEntity objcarrera = productosrepositorio.getById(p.getCodigo());
+        objcarrera.setEstado(true);
+        return productosrepositorio.save(objcarrera);
     }
 }

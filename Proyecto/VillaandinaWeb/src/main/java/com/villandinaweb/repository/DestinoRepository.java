@@ -9,4 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface DestinoRepository extends JpaRepository<DestinoEntity, Long>{
     @Query("select c from DestinoEntity c where c.estado=1")
     List<DestinoEntity> findAllCustom();
+    
+    @Query("select p from DestinoEntity p where p.estado=0")
+    List<DestinoEntity> findAllCustomEnable();
 }

@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface ProductosService {
     List<ProductosEntity> findAll();
 
-    Optional<ProductosEntity> findById(Long id);
+    ProductosEntity findById(Long id);
 
     ProductosEntity add(ProductosEntity p);
 
@@ -17,4 +17,8 @@ public interface ProductosService {
     ProductosEntity delete(ProductosEntity p);
 
     List<ProductosEntity> findAllCustom();
+    
+    List<ProductosEntity> findAllCustomEnable();
+    
+    ProductosEntity enable(ProductosEntity p);
 }

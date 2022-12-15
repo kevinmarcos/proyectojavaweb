@@ -10,4 +10,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface DistritoRepository extends JpaRepository<DistritoEntity, Long>{
     @Query("select d from DistritoEntity d where d.estado=1")
     List<DistritoEntity> findAllCustom();
+    
+    @Query("select p from DistritoEntity p where p.estado=0")
+    List<DistritoEntity> findAllCustomEnable();
 }

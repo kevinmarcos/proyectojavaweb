@@ -36,7 +36,7 @@ public class Salida_ProductoController {
     }
     
     @GetMapping("/{id}")
-    public Optional<Salida_ProductoEntity> findById(@PathVariable Long id){
+    public Salida_ProductoEntity findById(@PathVariable Long id){
         return salida_productoservice.findById(id);
     }
     

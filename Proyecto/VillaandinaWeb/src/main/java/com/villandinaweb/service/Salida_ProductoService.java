@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface Salida_ProductoService {
     List<Salida_ProductoEntity> findAll();
 
-    Optional<Salida_ProductoEntity> findById(Long id);
+    Salida_ProductoEntity findById(Long id);
 
     Salida_ProductoEntity add(Salida_ProductoEntity s);
 
@@ -17,4 +17,8 @@ public interface Salida_ProductoService {
     Salida_ProductoEntity delete(Salida_ProductoEntity s);
 
     List<Salida_ProductoEntity> findAllCustom();
+    
+    List<Salida_ProductoEntity> findAllCustomEnable();
+    
+    Salida_ProductoEntity enable(Salida_ProductoEntity p);
 }

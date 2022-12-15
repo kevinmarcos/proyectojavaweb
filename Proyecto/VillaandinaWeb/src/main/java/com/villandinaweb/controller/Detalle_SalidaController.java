@@ -36,7 +36,7 @@ public class Detalle_SalidaController {
     }
     
     @GetMapping("/{id}")
-    public Optional<Detalle_SalidaEntity> findById(@PathVariable Long id){
+    public Detalle_SalidaEntity findById(@PathVariable Long id){
         return detalle_salidaservice.findById(id);
     }
     

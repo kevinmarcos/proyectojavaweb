@@ -35,7 +35,7 @@ public class CategoriaController {
     }
     
     @GetMapping("/{id}")
-    public Optional<CategoriaEntity> findById(@PathVariable Long id){
+    public CategoriaEntity findById(@PathVariable Long id){
         return categoriaservice.findById(id);
     }
     

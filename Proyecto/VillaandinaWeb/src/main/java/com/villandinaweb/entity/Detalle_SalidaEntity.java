@@ -14,7 +14,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -33,15 +32,15 @@ public class Detalle_SalidaEntity implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     
     @Column(name="coddetalle_salida")
-    @NotNull
+    
     private long codigo;
     
     @Column(name="cantidad")
-    @NotNull
+    
     private int cantidad;
     
     @Column(name="estado")
-    @NotNull
+    
     private boolean estado;
     
 

@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface DistritoService {
     List<DistritoEntity> findAll();
 
-    Optional<DistritoEntity> findById(Long id);
+    DistritoEntity findById(Long id);
 
     DistritoEntity add(DistritoEntity d);
 
@@ -17,4 +17,8 @@ public interface DistritoService {
     DistritoEntity delete(DistritoEntity d);
 
     List<DistritoEntity> findAllCustom();
+    
+    List<DistritoEntity> findAllCustomEnable();
+    
+    DistritoEntity enable(DistritoEntity p);
 }

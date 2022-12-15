@@ -46,9 +46,30 @@
             <div class="card-header">
                 Lista de Empleados
             </div>
+            <div th:if=${param.correcto}>
+                <div class="alert alert-success" role="alert">
+                    Se registro exitosamente                  
+                </div>
+            </div>
+            <div th:if=${param.actualizo}>
+                <div class="alert alert-success" role="alert">
+                    Se actualizo exitosamente                  
+                </div>
+            </div>
+            <div th:if=${param.elimino}>
+                <div class="alert alert-success" role="alert">
+                    Se elimino exitosamente                  
+                </div>
+            </div>
+            <div th:if=${param.habilito}>
+                <div class="alert alert-success" role="alert">
+                    Se habilito exitosamente                  
+                </div>
+            </div>
             <div class="card-body">
                 <div class="text-end">
                     <a th:href="@{/registroempleado}" class="btn btn-danger">Agregar Empleado</a>
+                    <a th:href="@{/habilitarempleado}" class="btn btn-info">Habilitar Empleado</a>
                 </div>
             </div>
             <div class="card-footer text-muted">
@@ -86,8 +107,8 @@
                         <td th:text="${empleado.direccion}"></td>
                         <td th:text="${empleado.distrito.nombre}"></td>
                         <td th:text="${empleado.estado}? 'Habilitado':'Deshabilitado'"></td>
-                        <td><button class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i> Editar</button></td>
-                        <td><button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Eliminar</button></td>
+                        <td><a class="btn btn-primary" th:href="@{/actualizaempleado/{id}(id=${empleado.codigo})}"><i class="fa-solid fa-pen-to-square"></i> Editar</a></td>
+                        <td><a class="btn btn-danger" th:href="@{/eliminaempleado/{id}(id=${empleado.codigo})}"><i class="fa-solid fa-trash-can"></i> Eliminar</a></td>
                     </tr>
                 </tbody>
             </table>

@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,31 +27,31 @@ public class ProveedoresEntity implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="codprov")
-    @NotNull
+    
     private long codigo;
     
     @Column(name="rucprov")
-    @NotNull
+    
     private String ruc;
     
     @Column(name="nombprov")
-    @NotNull
+    
     private String nombre;
     
     @Column(name="direccionprov")
-    @NotNull
+    
     private String direccion;
     
     @Column(name="correoprov")
-    @NotNull
+    
     private String correo;
     
     @Column(name="telefprov")
-    @NotNull
+    
     private int telefono;
     
     @Column(name="estado")
-    @NotNull
+    
     private boolean estado;
 
 }

@@ -5,8 +5,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
+        <script src="https://kit.fontawesome.com/812c8ee19a.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/styles.css">
+
     </head>
     <body>
         <nav class="navbar navbar-dark bg-dark">
@@ -27,10 +29,6 @@
                     <a href="listarsalidaproducto">SALIDA_PRODUCTO</a>
                     <a href="">DETALLE_SALIDA</a>
                     <a href="">DETALLE_SALIDA</a>
-                    <a href="listarentradaproducto">ENTRADA_PRODUCTO</a>
-                    <a href="listarsalidaproducto">SALIDA_PRODUCTO</a>
-                    <a href="listardetalle_entrada">DETALLE_ENTRADA</a>
-                    <a href="listardetalle_salida">DETALLE_SALIDA</a>
                 </div>
             </div>
             <div class="d_flex">
@@ -44,32 +42,46 @@
                 </div>
             </div>
         </nav>
-        <div class="container">
-
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 main">
-                    <form th:action="@{/registrodistrito}" method="post" th:object="${distrito}" style="width: 30em; margin:auto ">
-                        <div class="mb-3">
-                            <label for="txtNom" class="form-label">Nombre:</label>
-                            <input type="text" class="form-control" id="txtNom" th:field="*{nombre}" required>   
-                        </div>
-                        <div class="mb-3">
-                            <label for="txtEst" class="form-label">Estado:</label>
-                            <br>
-                            <input type="checkbox" class="form-check-input" id="Est" th:field="*{estado}" required>
-                            <label class="form-check-label" for="Est">
-                                Habilitado
-                            </label>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Registrar</button><br>
-                    </form>
+        <br><br>
+        <div class="card text-center m-4">
+            <div class="card-header">
+                Lista de Proveedores
+            </div>
+            <div th:if=${param.habilito}>
+                    <div class="alert alert-success" role="alert">
+                        Se habilitó exitosamente                  
+                    </div>
+                </div>
+            <div class="card-body">
+                <div class="text-start">
+                    <a th:href="@{/listarcategoria}" class="btn btn-danger">Regresar</a>
                 </div>
             </div>
+            <div class="card-footer text-muted">
+                Villa Andina
+            </div>
+
+            <table class="table">
+                <thead class="table-dark">
+                    <tr>
+                        <td>Código</td>
+                        <td>Nombre</td>
+                        <td>Estado</td>
+                        <td>Habilitar</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="categoria : ${categoria}">
+                        <td th:text="${categoria.codigo}"></td>
+                        <td th:text="${categoria.nombre}"></td>
+                        <td th:text="${categoria.estado}? 'Habilitado':'Deshabilitado'"></td>
+                        <td><a class="btn btn-primary" th:href="@{/habilitacategoria/{id}(id=${categoria.codigo})}"><i class="fa-solid fa-pen-to-square"></i> Habilitar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
         </div>
 
         <script src="js/bootstrap.js"></script>
-        <script src="js/sweetalert2.all.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </body>
 </html>

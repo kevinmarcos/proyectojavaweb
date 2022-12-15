@@ -20,7 +20,7 @@ public class DistritoControllerWeb {
 
     @GetMapping("/listardistrito")
     public String PaginaProductos(Model modelo) {
-        modelo.addAttribute("distrito", servicio.findAll());
+        modelo.addAttribute("distrito", servicio.findAllCustom());
         return "listardistrito";
     }
  
@@ -53,5 +53,26 @@ public class DistritoControllerWeb {
             @ModelAttribute("distrito") DistritoEntity c) {
         servicio.update(c);
         return "redirect:/listardistrito?actualizo";
+    }
+    
+    @GetMapping("/eliminadistrito/{id}")
+    public String EliminaCurso(@PathVariable Long id) {
+        DistritoEntity objcurso = servicio.findById(id);
+        servicio.delete(objcurso);
+        return "redirect:/listardistrito?elimino";
+    }
+    
+    
+    @GetMapping("/habilitardistrito")
+    public String PaginaHabilitarCurso(Model modelo) {
+        modelo.addAttribute("distrito", servicio.findAllCustomEnable());
+        return "habilitardistrito";
+    }
+    
+    @GetMapping("/habilitadistrito/{id}")
+    public String HabilitaCurso(@PathVariable Long id, Model modelo) {
+        DistritoEntity objcurso = servicio.findById(id);
+        servicio.enable(objcurso);
+        return "redirect:/habilitardistrito?habilito";
     }
 }

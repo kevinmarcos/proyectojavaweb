@@ -8,7 +8,7 @@ public interface CategoriaService {
 
     List<CategoriaEntity> findAll();
 
-    Optional<CategoriaEntity> findById(Long id);
+    CategoriaEntity findById(Long id);
 
     CategoriaEntity add(CategoriaEntity c);
 
@@ -17,4 +17,8 @@ public interface CategoriaService {
     CategoriaEntity delete(CategoriaEntity c);
 
     List<CategoriaEntity> findAllCustom();
+    
+    List<CategoriaEntity> findAllCustomEnable();
+    
+    CategoriaEntity enable(CategoriaEntity p);
 }

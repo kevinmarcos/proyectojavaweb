@@ -21,8 +21,8 @@ public class DestinoServiceImpl implements DestinoService{
     }
 
     @Override
-    public Optional<DestinoEntity> findById(Long id) {
-        return destinorepositorio.findById(id);
+    public DestinoEntity findById(Long id) {
+        return destinorepositorio.findById(id).get();
     }
 
     @Override
@@ -48,5 +48,17 @@ public class DestinoServiceImpl implements DestinoService{
     @Override
     public List<DestinoEntity> findAllCustom() {
         return destinorepositorio.findAllCustom();
-    }    
+    }   
+    
+    @Override
+    public List<DestinoEntity> findAllCustomEnable() {
+        return destinorepositorio.findAllCustomEnable();
+    }
+    
+    @Override
+    public DestinoEntity enable(DestinoEntity p) {
+        DestinoEntity objcarrera = destinorepositorio.getById(p.getCodigo());
+        objcarrera.setEstado(true);
+        return destinorepositorio.save(objcarrera);
+    }
 }

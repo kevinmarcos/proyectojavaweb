@@ -21,8 +21,8 @@ public class Salida_ProductoServiceImpl implements Salida_ProductoService{
     }
 
     @Override
-    public Optional<Salida_ProductoEntity> findById(Long id) {
-        return salida_productorepositorio.findById(id);
+    public Salida_ProductoEntity findById(Long id) {
+        return salida_productorepositorio.findById(id).get();
     }
 
     @Override
@@ -48,5 +48,17 @@ public class Salida_ProductoServiceImpl implements Salida_ProductoService{
     @Override
     public List<Salida_ProductoEntity> findAllCustom() {
         return salida_productorepositorio.findAllCustom();
+    }
+    
+    @Override
+    public List<Salida_ProductoEntity> findAllCustomEnable() {
+        return salida_productorepositorio.findAllCustomEnable();
+    }
+    
+    @Override
+    public Salida_ProductoEntity enable(Salida_ProductoEntity p) {
+        Salida_ProductoEntity objcarrera = salida_productorepositorio.getById(p.getCodigo());
+        objcarrera.setEstado(true);
+        return salida_productorepositorio.save(objcarrera);
     }
 }

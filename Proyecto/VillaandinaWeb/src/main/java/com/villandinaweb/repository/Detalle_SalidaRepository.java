@@ -13,4 +13,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface Detalle_SalidaRepository extends JpaRepository<Detalle_SalidaEntity, Long>{
     @Query("select d from Detalle_SalidaEntity d where d.estado=1")
     List<Detalle_SalidaEntity> findAllCustom();
+    
+    @Query("select p from Detalle_SalidaEntity p where p.estado=0")
+    List<Detalle_SalidaEntity> findAllCustomEnable();
 }

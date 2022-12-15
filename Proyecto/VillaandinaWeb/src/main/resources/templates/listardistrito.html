@@ -46,9 +46,30 @@
             <div class="card-header">
                 Lista de Distritos
             </div>
+            <div th:if=${param.correcto}>
+                    <div class="alert alert-success" role="alert">
+                        Se registro exitosamente                  
+                    </div>
+                </div>
+                <div th:if=${param.actualizo}>
+                    <div class="alert alert-success" role="alert">
+                        Se actualizo exitosamente                  
+                    </div>
+                </div>
+                <div th:if=${param.elimino}>
+                    <div class="alert alert-success" role="alert">
+                        Se elimino exitosamente                  
+                    </div>
+                </div>
+                <div th:if=${param.habilito}>
+                    <div class="alert alert-success" role="alert">
+                        Se habilito exitosamente                  
+                    </div>
+                </div>
             <div class="card-body">
                 <div class="text-end">
                     <a th:href="@{/registrodistrito}" class="btn btn-danger">Agregar Distrito</a>
+                    <a th:href="@{/habilitardistrito}" class="btn btn-info">Habilitar Distrito</a>
                 </div>
             </div>
             <div class="card-footer text-muted">
@@ -71,7 +92,7 @@
                         <td th:text="${distrito.nombre}"></td>
                         <td th:text="${distrito.estado}? 'Habilitado':'Deshabilitado'"></td>
                         <td><a class="btn btn-primary" th:href="@{/actualizadistrito/{id}(id=${distrito.codigo})}"><i class="fa-solid fa-pen-to-square"></i> Editar</a></td>
-                        <td><a class="btn btn-danger" th:href="@{/eliminardistrito/{id}(id=${distrito.codigo})}"><i class="fa-solid fa-trash-can"></i> Eliminar</a></td>
+                        <td><a class="btn btn-danger" th:href="@{/eliminadistrito/{id}(id=${distrito.codigo})}"><i class="fa-solid fa-trash-can"></i> Eliminar</a></td>
                     </tr>
                 </tbody>
             </table>

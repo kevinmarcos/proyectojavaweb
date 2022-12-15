@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -46,9 +45,9 @@ public class CategoriaEntity implements Serializable{
     @Column(name="codcat")
     private long codigo;
     @Column(name="nomcat")
-    @NotNull
+
     private String nombre;
     @Column(name="estado")
-    @NotNull
+
     private boolean estado;
 }

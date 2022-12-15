@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,43 +26,43 @@ public class EmpleadoEntity implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="codemple")
-    @NotNull
+    
     private long codigo;
     
     @Column(name="dni")
-    @NotNull
+    
     private String dni;
     
     @Column(name="nomemple")
-    @NotNull
+    
     private String nombre;
     
     @Column(name="apellidpat")
-    @NotNull
+    
     private String apellidopaterno;
     
     @Column(name="apellidmat")
-    @NotNull
+    
     private String apellidomaterno;
     
     @Column(name="telfemple")
-    @NotNull
+    
     private String telefono;
     
     @Column(name="correoemple")
-    @NotNull
+    
     private String correo;
     
     @Column(name="sexemple")
-    @NotNull
+    
     private String sexo;
     
     @Column(name="direccion")
-    @NotNull
+    
     private String direccion;
     
     @Column(name="estado")
-    @NotNull
+    
     private boolean estado;
     
     //@ManyToOne define la relacion de muchos a uno

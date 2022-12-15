@@ -3,7 +3,6 @@ package com.villandinaweb.service;
 import com.villandinaweb.entity.CategoriaEntity;
 import com.villandinaweb.repository.CategoriaRepository;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,8 +19,8 @@ public class CategoriaServiceImpl implements CategoriaService {
     }
 
     @Override
-    public Optional<CategoriaEntity> findById(Long id) {
-        return categoriapositorio.findById(id);
+    public CategoriaEntity findById(Long id) {
+        return categoriapositorio.findById(id).get();
     }
 
     @Override
@@ -47,5 +46,17 @@ public class CategoriaServiceImpl implements CategoriaService {
     @Override
     public List<CategoriaEntity> findAllCustom() {
         return categoriapositorio.findAllCustom();
+    }
+    
+    @Override
+    public List<CategoriaEntity> findAllCustomEnable() {
+        return categoriapositorio.findAllCustomEnable();
+    }
+    
+    @Override
+    public CategoriaEntity enable(CategoriaEntity p) {
+        CategoriaEntity objcarrera = categoriapositorio.getById(p.getCodigo());
+        objcarrera.setEstado(true);
+        return categoriapositorio.save(objcarrera);
     }
 }

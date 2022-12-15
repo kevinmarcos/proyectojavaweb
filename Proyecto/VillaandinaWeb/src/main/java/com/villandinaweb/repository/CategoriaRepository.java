@@ -10,4 +10,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface CategoriaRepository extends JpaRepository<CategoriaEntity, Long>{
     @Query("select c from CategoriaEntity c where c.estado=1")
     List<CategoriaEntity> findAllCustom();
+    
+    @Query("select p from CategoriaEntity p where p.estado=0")
+    List<CategoriaEntity> findAllCustomEnable();
 }

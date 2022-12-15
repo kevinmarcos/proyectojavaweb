@@ -10,4 +10,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface EmpleadoRepository extends JpaRepository<EmpleadoEntity, Long>{
     @Query("select e from EmpleadoEntity e where e.estado=1")
     List<EmpleadoEntity> findAllCustom();
+    
+    @Query("select p from EmpleadoEntity p where p.estado=0")
+    List<EmpleadoEntity> findAllCustomEnable();
 }

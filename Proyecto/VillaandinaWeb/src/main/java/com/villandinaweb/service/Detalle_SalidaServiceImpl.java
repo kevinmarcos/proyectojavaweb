@@ -21,8 +21,8 @@ public class Detalle_SalidaServiceImpl implements Detalle_SalidaService{
     }
 
     @Override
-    public Optional<Detalle_SalidaEntity> findById(Long id) {
-        return detalle_salidarepositorio.findById(id);
+    public Detalle_SalidaEntity findById(Long id) {
+        return detalle_salidarepositorio.findById(id).get();
     }
 
     @Override
@@ -48,5 +48,17 @@ public class Detalle_SalidaServiceImpl implements Detalle_SalidaService{
     @Override
     public List<Detalle_SalidaEntity> findAllCustom() {
         return detalle_salidarepositorio.findAllCustom();
+    }
+    
+    @Override
+    public List<Detalle_SalidaEntity> findAllCustomEnable() {
+        return detalle_salidarepositorio.findAllCustomEnable();
+    }
+    
+    @Override
+    public Detalle_SalidaEntity enable(Detalle_SalidaEntity p) {
+        Detalle_SalidaEntity objcarrera = detalle_salidarepositorio.getById(p.getCodigo());
+        objcarrera.setEstado(true);
+        return detalle_salidarepositorio.save(objcarrera);
     }
 }

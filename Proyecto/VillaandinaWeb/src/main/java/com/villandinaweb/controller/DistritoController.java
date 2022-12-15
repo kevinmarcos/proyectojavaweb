@@ -33,7 +33,7 @@ public class DistritoController {
     }
     
     @GetMapping("/{id}")
-    public Optional<DistritoEntity> findById(@PathVariable Long id){
+    public DistritoEntity findById(@PathVariable Long id){
         return distritoservice.findById(id);
     }
     

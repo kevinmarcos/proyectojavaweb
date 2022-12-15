@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,23 +28,23 @@ public class ProductosEntity implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="codprod")
-    @NotNull
+    
     private long codigo;
     
     @Column(name="nomprod")
-    @NotNull
+    
     private String nombre;
     
     @Column(name="duraprod")
-    @NotNull
+    
     private String duracion;
     
     @Column(name="cantidad")
-    @NotNull
+    
     private int cantidad;
     
     @Column(name="estprod")
-    @NotNull
+    
     private boolean estado;
 
     @ManyToOne  

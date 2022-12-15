@@ -34,7 +34,7 @@ public class ProductosController {
     }
     
     @GetMapping("/{id}")
-    public Optional<ProductosEntity> findById(@PathVariable Long id){
+    public ProductosEntity findById(@PathVariable Long id){
         return productosservice.findById(id);
     }
     
