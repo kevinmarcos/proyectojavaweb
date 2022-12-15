@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" th:href="@{/}">
+                    <img src="img/logo.png" width="120">
+                </a>
+                <div class="enlaces" id="enlaces">
+                    <a href="listarproductos">PRODUCTOS</a>
+                    <a href="listarcategoria">CATEGORIA</a>
+                    <a href="listarproveedor">PROVEEDORES</a>
+                    <a href="listarempleado">EMPLEADOS</a>
+                    <a href="listardestino">DESTINOS</a>
+                    <a href="listardistrito">DISTRITOS</a>
+                    <a href="listarproveedor">PROVEEDORES</a>
+                    <a href="listardestino">DESTINO</a>
+                    <a href="listarentradaproducto">ENTRADA_PRODUCTO</a>
+                    <a href="listarsalidaproducto">SALIDA_PRODUCTO</a>
+                    <a href="listardetalle_entrada">DETALLE_ENTRADA</a>
+                    <a href="listardetalle_salida">DETALLE_SALIDA</a>
+                </div>
+            </div>
+            <div class="d_flex">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Thony Leca
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 main">
+                    <form th:action="@{/registrosalidaproducto}" method="post" th:object="${salidaproducto}" style="width: 30em; margin:auto ">
+                        <div class="mb-3">
+                            <label for="txtNom" class="form-label">Fecha:</label>
+                            <input type="date" class="form-control" id="txtFecha" th:field="*{fecha}" required>   
+                        </div>
+                        <div class="mb-3">
+                            <label for="txtNom" class="form-label">Dirección:</label>
+                            <input type="text" class="form-control" id="txtDirec" th:field="*{direccion}" required>   
+                        </div>
+                        <div class="mb-3">
+                            <label for="cboCur" class="form-label">Empleado:</label>
+                            <select type="text" class="form-control" id="cboEmpl" th:field="*{empleado}" required>
+                                <option value="">Seleccione al empleado: </option>
+                                <option th:each="empleado:${empleado}" th:value="${empleado.codigo}" th:text="${empleado.codigo} + ' '+${empleado.nombre}"></option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cboCur" class="form-label">Destino:</label>
+                            <select type="text" class="form-control" id="cboDest" th:field="*{destino}" required>
+                                <option value="">Seleccione el destino: </option>
+                                <option th:each="destino:${destino}" th:value="${destino.codigo}" th:text="${destino.codigo} + ' '+${destino.nombre} +' -> '+ ${destino.distrito.nombre}"></option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="txtEst" class="form-label">Estado:</label>
+                            <br>
+                            <input type="checkbox" class="form-check-input" id="Est" th:field="*{estado}" required>
+                            <label class="form-check-label" for="Est">
+                                Habilitado
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Registrar</button><br>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/bootstrap.js"></script>
+        <script src="js/sweetalert2.all.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+</html>

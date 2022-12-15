@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/registro.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 main">
+                    <form th:action="@{/registrousuario}" method="post" th:object="${usuario}">
+                        <div th:if=${param.correcto}>
+                            <div class="alert alert-success" role="alert">
+                                Se registro exitosamente                  
+                            </div>
+                        </div>
+                        <img src="img/logo-login.jpg" alt="" class="img-fluid logo">
+                        <h1 class="titulo">Registro de sistema</h1>
+
+                        <label for="txtNom" class="form-label">Nombres:</label>
+                        <br>
+                        <input type="text" class="form-control" id="nombre" th:field="*{nombre}" placeholder="Ingrese su nombre" required>   
+
+                        <label for="txtApe" class="form-label">Apellidos:</label>
+                        <br>
+                        <input type="text" class="form-control" id="txtApep" th:field="*{apellido}" placeholder="Ingrese su apellido" required>
+
+                        <label for="txtCor" class="form-label">Correo:</label>
+                        <br>
+                        <input type="text" class="form-control" id="txtCor" th:field="*{email}" placeholder="Ingrese su correo" required>   
+
+
+                        <label for="txtCla" class="form-label">Clave:</label>
+                        <br>
+                        <input type="text" class="form-control" id="txtCla" th:field="*{clave}" placeholder="Ingrese su contraseña" required>   
+
+
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%">Registrar</button>
+                        
+                        <a th:href="@{/login}" class="btn btn-secondary" style="width: 100%">Regresar</a>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/funciones.js"></script>
+        <script src="js/login.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/sweetalert2.all.min.js"></script>
+    </body>
+</html>

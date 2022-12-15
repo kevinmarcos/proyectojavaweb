@@ -1,0 +1,70 @@
+body{
+    background-image: url(../img/fondo-login.jpg);
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    text-align: center;
+    width: 60%;
+    height: auto;
+    background-color: white;
+    border: 2px solid red;
+    padding: 1em;
+    box-shadow: 0 0 6px black;
+    
+}
+
+.main{/* PARA CENTRAR */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo{
+    width: 15%;
+    margin-bottom: 2.5em;
+    margin-top: 2em;
+}
+
+.titulo{
+    font-size: 1.2em;
+    margin-bottom: .2em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+label{
+    position: absolute;
+    text-align: left;
+    display: block;
+    margin-bottom: .2em;
+    font-weight: bold;
+}
+
+input{
+    width: 100%;
+    padding: .4em;
+    margin-bottom: .8em;
+    border: 1px solid red;
+    border-radius: .2em .2em;
+}
+
+.registro{
+    background-color: red;
+    color: white;
+    padding: .4em;
+    border: none;
+    font-size: 1.2em;
+}
+
+.inicio{
+    background-color: blue;
+    color: white;
+    padding: .4em;
+    border: none;
+    font-size: 1.2em;
+}

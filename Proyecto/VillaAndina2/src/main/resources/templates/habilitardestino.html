@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://kit.fontawesome.com/812c8ee19a.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/styles.css">
+
+    </head>
+    <body>
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" th:href="@{/}">
+                    <img src="img/logo.png" width="120">
+                </a>
+                <div class="enlaces" id="enlaces">
+                    <a href="listarproductos">PRODUCTOS</a>
+                    <a href="listarcategoria">CATEGORIA</a>
+                    <a href="listarproveedor">PROVEEDORES</a>
+                    <a href="listarempleado">EMPLEADOS</a>
+                    <a href="listardestino">DESTINOS</a>
+                    <a href="listardistrito">DISTRITOS</a>
+                    <a href="listarproveedor">PROVEEDORES</a>
+                    <a href="listarentradaproducto">ENTRADA_PRODUCTO</a>
+                    <a href="listarsalidaproducto">SALIDA_PRODUCTO</a>
+                    <a href="listardetalle_entrada">DETALLE_ENTRADA</a>
+                    <a href="listardetalle_salida">DETALLE_SALIDA</a>
+                </div>
+            </div>
+            <div class="d_flex">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Thony Leca
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <br><br>
+        <div class="card text-center m-4">
+            <div class="card-header">
+                Lista de Destinos
+            </div>
+            <div th:if=${param.habilito}>
+                    <div class="alert alert-success" role="alert">
+                        Se habilitó exitosamente                  
+                    </div>
+                </div>
+            <div class="card-body">
+                <div class="text-start">
+                    <a th:href="@{/listardestino}" class="btn btn-danger">Regresar</a>
+                </div>
+            </div>
+            <div class="card-footer text-muted">
+                Villa Andina
+            </div>
+
+            <table class="table">
+                <thead class="table-dark">
+                    <tr>
+                        <td>Código</td>
+                        <td>Nombre</td>
+                        <td>Distrito</td>
+                        <td>Estado</td>
+                        <td>Habilitar</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="destino : ${destino}">
+                        <td th:text="${destino.codigo}"></td>
+                        <td th:text="${destino.nombre}"></td>
+                        <td th:text="${destino.distrito.nombre}"></td>
+                        <td th:text="${destino.estado}? 'Habilitado':'Deshabilitado'"></td>
+                        <td><a class="btn btn-primary" th:href="@{/habilitadestino/{id}(id=${destino.codigo})}"><i class="fa-solid fa-pen-to-square"></i> Habilitar</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <script src="js/bootstrap.js"></script>
+    </body>
+</html>

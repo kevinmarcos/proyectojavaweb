@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/login.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 main">
+                    <form th:action="@{/login}"class="login-form" method="post">
+                        <div th:if=${param.error}>
+                            <div class="alert alert-danger" role="alert">
+                                Usuario o contraseña invalido                  
+                            </div>
+                        </div>
+                        <div th:if=${param.logout}>
+                            <div class="alert alert-info" role="alert">
+                                Ha cerrado sesion exitosamente                 
+                            </div>
+                        </div>
+                        <img src="img/logo-login.jpg" alt="" class="img-fluid logo">
+                        <h1 class="titulo">Bienvenido a nuestra <br> Aula Virtual</h1>
+
+                        <label>
+                            Usuario:
+                        </label>
+                        <br>
+                        <input type="text" class="form-control rounded-left" placeholder="Ingrese su Usuario" id="username" name="username" required>
+
+                        <label>
+                            Contraseña:
+                        </label>
+                        <br><br>
+                        <input type="password" class="form-control rounded-left" placeholder="Ingrese su Clave" id="password" name="password" required>
+
+                        <input type="submit" class="login" id="btnIngresar" name="btnIngresar" value="Ingresar">
+
+                        <a th:href="@{/registrousuario}">¿Aún no te has registrado? REGISTRATE</a>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
