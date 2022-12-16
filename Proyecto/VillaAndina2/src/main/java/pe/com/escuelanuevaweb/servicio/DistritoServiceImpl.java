@@ -2,7 +2,6 @@
 package pe.com.escuelanuevaweb.servicio;
 
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,8 +54,8 @@ public class DistritoServiceImpl implements DistritoService{
     }
     
     @Override
-    public DistritoEntity enable(DistritoEntity p) {
-        DistritoEntity objcarrera = distritorepositorio.getById(p.getCodigo());
+    public DistritoEntity enable(DistritoEntity d) {
+        DistritoEntity objcarrera = distritorepositorio.getById(d.getCodigo());
         objcarrera.setEstado(true);
         return distritorepositorio.save(objcarrera);
     }

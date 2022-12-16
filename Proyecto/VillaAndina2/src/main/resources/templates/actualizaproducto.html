@@ -5,8 +5,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
+        <script src="https://kit.fontawesome.com/812c8ee19a.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/styles.css">
+
     </head>
     <body>
         <nav class="navbar navbar-dark bg-dark">
@@ -21,11 +23,12 @@
                     <a href="listarempleado">EMPLEADOS</a>
                     <a href="listardestino">DESTINOS</a>
                     <a href="listardistrito">DISTRITOS</a>
+                    <a href="listarproveedor">PROVEEDORES</a>
                     <a href="listardestino">DESTINO</a>
                     <a href="listarentradaproducto">ENTRADA_PRODUCTO</a>
                     <a href="listarsalidaproducto">SALIDA_PRODUCTO</a>
-                    <a href="">DETALLE_SALIDA</a>
-                    <a href="">DETALLE_SALIDA</a>
+                    <a href="listardetalle_entrada">DETALLE_ENTRADA</a>
+                    <a href="listardetalle_salida">DETALLE_SALIDA</a>
                 </div>
             </div>
             <div class="d_flex">
@@ -39,11 +42,19 @@
                 </div>
             </div>
         </nav>
+        <br><br>
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 main">
-                            <form th:action="@{/registroproductos}" method="post" th:object="${productos}" style="width: 30em; margin:auto ">
-                                <h1 class="titulo">Registro de productos</h1>
+                            <form th:action="@{/actualizaproductos/{id}(id=${productos.codigo})}" method="post" th:object="${productos}" style="width: 30em; margin:auto ">
+                                <h1 class="titulo">Actualización de productos</h1>
+                                
+                                <div class="mb-3">
+                                    <label for="txtNom" class="form-label">Código</label>
+                                    <br>
+                                    <input type="text" class="form-control" id="txtNom" th:field="*{codigo}" th:value="${productos.nombre}" required readonly>
+                                </div>
+                                
                                 <div class="mb-3">
                                     <label for="txtNom" class="form-label">Nombre:</label>
                                     <br>
@@ -53,7 +64,7 @@
                                 <div class="mb-3">
                                     <label for="txtCat" class="form-label">Categoría:</label>
                                     <br>
-                                    <select type="text" class="form-control" id="txtCat" th:field="*{categoria}" required>
+                                    <select type="text" class="form-control" id="txtCat" th:field="*{categoria}"required>
                                         <option value="">Seleccione la categoría: </option>
                                         <option th:each="categoria:${categoria}" th:value="${categoria.codigo}" th:text="${categoria.nombre}"></option>
                                     </select>
@@ -68,7 +79,7 @@
                                 <div class="mb-3">
                                     <label for="txtDur" class="form-label">Duración:</label>
                                     <br>
-                                    <input type="text" class="form-control" id="txtCant" th:field="*{duracion}" required>
+                                    <input type="text" class="form-control" id="txtCant" th:field="*{duracion}"required>
                                 </div>
 
                                 <div class="mb-3">
@@ -80,19 +91,12 @@
                                     </label>
                                 </div>
 
-                                <button type="submit" class="btn btn-danger">Registrar</button><br>
-
+                                <button type="submit" class="btn btn-success">Actualizar</button><br>
+                                <a th:href="@{/listarproductos}" class="btn btn-secondary">Regresar</a>
                             </form>
                         </div>
                     </div>
                 </div>
-
-            </div>
-        </div>
-    </div>
-
-    <script src="js/bootstrap.js"></script>
-    <script src="js/sweetalert2.all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</body>
+        <script src="js/bootstrap.js"></script>
+    </body>
 </html>

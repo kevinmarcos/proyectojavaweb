@@ -46,6 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 "/rol**",
                 "/js/**",
                 "/css/**",
+                "/css**",
                 "/fonts/**",
                 "/images/**",
                 "/scss/**",

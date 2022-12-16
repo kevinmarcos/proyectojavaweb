@@ -2,7 +2,6 @@
 package pe.com.escuelanuevaweb.servicio;
 
 import java.util.List;
-import java.util.Optional;
 import pe.com.escuelanuevaweb.modelo.DistritoEntity;
 
 public interface DistritoService {

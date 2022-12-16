@@ -42,10 +42,16 @@ public class DistritoControllerWeb {
         servicio.add(c);
         return "redirect:/listardistrito?correcto";
     }
-    
+     
+//            @GetMapping("/actualizadistrito")
+//    public String MostrarFormularioActualiza(Model modelo) {
+//        //es el nombre que tendra la pagina web
+//        modelo.addAttribute("distrito", servicio.findAllCustom());
+//        return "actualizadistrito";
+        
     @GetMapping("/actualizadistrito/{id}")
     public String MostrarFormularioActualiza(@PathVariable Long id, Model modelo) {
-        modelo.addAttribute("distrito", servicio.findById(id));
+        modelo.addAttribute("distritos", servicio.findById(id));
         return "actualizadistrito";
     }
     
@@ -66,7 +72,7 @@ public class DistritoControllerWeb {
     
     @GetMapping("/habilitardistrito")
     public String PaginaHabilitarCurso(Model modelo) {
-        modelo.addAttribute("distrito", servicio.findAllCustomEnable());
+        modelo.addAttribute("distritos", servicio.findAllCustomEnable());
         return "habilitardistrito";
     }
     
