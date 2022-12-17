@@ -52,8 +52,26 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 "/scss/**",
                 "/img/**",
                 "/static/**",
-                "/curso**",
-                "/curso/**"
+                "/productos**",
+                "/productos/**",
+                "/categoria/**",
+                "/categoria**",
+                 "/empleado**",
+                "/empleado/**",
+                "/distrito/**",
+                "/distrito**",
+                 "/destino**",
+                "/destino/**",
+                "/proveedores/**",
+                "/proveedores**",
+                 "/entrada_producto**",
+                "/entrada_producto/**",
+                "/detalle_entrada/**",
+                "/detalle_entrada**",
+                 "/salida_producto**",
+                "/salida_producto/**",
+                "/detalle_salida/**",
+                "/detalle_salida**"
         ).permitAll().anyRequest().authenticated().and().formLogin()
                 .loginPage("/login").permitAll().and()
                 .logout().invalidateHttpSession(true).clearAuthentication(true)
